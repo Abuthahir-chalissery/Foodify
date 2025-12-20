@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import Header from './components/Header'
 import RestroContainer from './components/RestroContainer'
-import { restaurants } from './Data/RestoarentData'
+import { restaurants } from './utils/RestoarentData'
 function App() {
 
   const resData = restaurants
