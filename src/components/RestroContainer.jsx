@@ -1,11 +1,23 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import RestroCard from './RestroCard'
 import { useState } from 'react';
 
 export default function RestroContainer({resData}) {
   
-  const [listOfRestaurants, setListOfRestaurants] = useState(resData)
+  const [listOfRestaurants, setListOfRestaurants] = useState([])
 
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    const data = await fetch("https://www.swiggy.com/mapi/restaurants/list/v5?offset=0&is-seo-homepage-enabled=true&lat=17.4844298&lng=78.3893451&carousel=true&third_party_vendor=1"); 
+
+    const json = await data.json();
+    console.log(json);
+    setListOfRestaurants(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants)
+    
+  }
   
   return (
     <div className='wfull flex flex-col gap-7 p-3 border border-gray-400 rounded-2xl'>
@@ -15,7 +27,7 @@ export default function RestroContainer({resData}) {
         </div>
         <div className='w-full h-auto flex justify-center'>
             <button onClick={() => {
-              setListOfRestaurants(resData.filter((res) => res.info.avgRating > 4))
+              setListOfRestaurants(listOfRestaurants.filter((res) => res.info.avgRating > 4.1))
               
             }} className='p-2 rounded-3xl cursor-pointer bg-gray-200 pl-2 pr-2  text-gray-600'>Top Rated</button>
         </div>
