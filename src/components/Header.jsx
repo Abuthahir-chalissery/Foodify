@@ -18,7 +18,7 @@ export default function Header() {
                 <li className='hover:text-red-500'>About Us</li>
                 <li className='hover:text-red-500'>Contact Us</li>
                 <li className='hover:text-red-500'>Cart</li>
-                <button onClick={()=> {setBtnName("Logout ")}} className=' pl-2 pr-2 rounded-md bg-red-500 text-white p-1 cursor-pointer'>{BtnName}</button>
+                <button onClick={()=> {BtnName === "Login" ? setBtnName("Logout") : setBtnName("Login")}} className=' pl-2 pr-2 rounded-md bg-red-500 text-white p-1 cursor-pointer'>{BtnName}</button>
             </ul>
         </div>
     </div>
