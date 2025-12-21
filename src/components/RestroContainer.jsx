@@ -19,12 +19,7 @@ export default function RestroContainer({resData}) {
   }
   
   // conditional rendering
-  if (listOfRestaurants.length === 0) {
-    return <Shimmer/>
-  }
-
-
-  return (
+  return listOfRestaurants.length === 0 ? (<Shimmer/>) : (
     <div className='wfull flex flex-col gap-7 p-3 border border-gray-400 rounded-2xl'>
         <div className='flex gap-5 justify-center'>
             <input className='border pl-2 outline-none border-gray-400 rounded-md' type="text" placeholder='Search...' name="" id="" />
