@@ -8,6 +8,7 @@ import About from './components/About.jsx'
 import RestroContainer from './components/RestroContainer.jsx'
 import Contact from './components/Contact.jsx'
 import Cart from './components/Cart.jsx'
+import RestroMenu from './components/RestroMenu.jsx'
 
 // Configuration
 const appRouter = createBrowserRouter([
@@ -31,6 +32,10 @@ const appRouter = createBrowserRouter([
       {
         path: '/cart',
         element: <Cart/>
+      },
+      {
+        path: '/restaurent/:resId',
+        element: <RestroMenu/>
       }
     ],
     errorElement: <Error/>
