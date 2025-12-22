@@ -34,7 +34,7 @@ export default function RestroContainer({resData}) {
     
     <div className='wfull flex flex-col gap-7 p-3 border border-gray-400 rounded-2xl'>
         <div className='flex gap-5 justify-center'>
-            <input className='border pl-2 outline-none border-gray-400 rounded-md' type="text" placeholder='Search...' value={searchText} onChange={(e)=>{setSearchText(e.target.value)}}  name="" id="" />
+            <input className='w-full max-w-100 border pl-2 outline-none border-gray-400 rounded-md' type="text" placeholder='Search...' value={searchText} onChange={(e)=>{setSearchText(e.target.value)}}  name="" id="" />
             <button onClick={() => {
               // Filter the restaurant cards and update the UI
               // Search Text

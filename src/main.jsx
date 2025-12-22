@@ -3,12 +3,10 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Header from './components/Header.jsx'
-import RestroContainer from './components/RestroContainer.jsx'
 import Error from './components/Error.jsx'
 import About from './components/About.jsx'
 
-
+// Configuration
 const appRouter = createBrowserRouter([
 
   {
