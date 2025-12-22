@@ -5,24 +5,37 @@ import App from './App.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Error from './components/Error.jsx'
 import About from './components/About.jsx'
+import RestroContainer from './components/RestroContainer.jsx'
+import Contact from './components/Contact.jsx'
+import Cart from './components/Cart.jsx'
 
 // Configuration
 const appRouter = createBrowserRouter([
 
   {
     path: '/',
-    element: (
-      <>
-      <App/>
-      </>
-    ),
+    element: (<App/>),
+    children: [
+      {
+        path: '/',
+        element: <RestroContainer/>
+      },
+      {
+        path: '/about',
+        element: <About/>
+      },
+      {
+        path: '/contact',
+        element: <Contact/>
+      },
+      {
+        path: '/cart',
+        element: <Cart/>
+      }
+    ],
     errorElement: <Error/>
-    
   },
-  {
-    path: '/about',
-    element: <About/>
-  }
+  
 
 ])
 
