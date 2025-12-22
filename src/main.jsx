@@ -15,16 +15,13 @@ const appRouter = createBrowserRouter([
       <>
       <App/>
       </>
-    )
+    ),
+    errorElement: <Error/>
     
   },
   {
     path: '/about',
     element: <About/>
-  },
-  {
-    path: '*',
-    element: <Error/>
   }
 
 ])
