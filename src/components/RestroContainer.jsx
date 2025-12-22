@@ -47,7 +47,7 @@ export default function RestroContainer({resData}) {
 
             {/* Top Rated button */}
             <button onClick={() => {
-              setFilteredRestaurants(listOfRestaurants.filter((res) => res.info.avgRating > 4.2))
+              setFilteredRestaurants(listOfRestaurants.filter((res) => res.info.avgRating > 4.4))
               
             }} className='p-2 rounded-3xl cursor-pointer bg-gray-200 pl-2 pr-2  text-gray-600'>Top Rated</button>
 
