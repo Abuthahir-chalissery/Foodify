@@ -24,7 +24,6 @@ export default function RestroContainer({resData}) {
     const data = await fetch("https://www.swiggy.com/mapi/restaurants/list/v5?offset=0&is-seo-homepage-enabled=true&lat=17.4844298&lng=78.3893451&carousel=true&third_party_vendor=1"); 
 
     const json = await data.json();
-    console.log(json);
     
     setListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     setFilteredRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
@@ -76,7 +75,7 @@ export default function RestroContainer({resData}) {
         <div className='w-full  flex flex-wrap gap-5 h-auto justify-center '>
             {error &&(<h1 className='font-semibold text-red-700'>{`${error}`}</h1>) }
             {filteredRestaurants.map((res) => (
-              <Link key={res.info.id} to={'/restaurants/'+res?.info?.id}><RestroCard  resData={res} /></Link>
+              <Link key={res.info.id} to={'/restaurent/'+res?.info?.id}><RestroCard  resData={res} /></Link>
               
             ))}
             
