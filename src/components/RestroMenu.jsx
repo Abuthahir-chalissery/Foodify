@@ -3,35 +3,20 @@ import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import { MENU_URL } from "../utils/constants";
 import { MENU_IMG_URL } from "../utils/constants";
+import useRestaurentMenu from "../utils/useRestroMenu";
 
 const RestroMenu = () => {
 
-    const [resInfo, setResInfo] = useState(null)
-
     const { resId } = useParams()
     
-
-    useEffect(() => {
-        fetchMenu();
-    },[])
-
-    const fetchMenu = async () => {
-        const data = await fetch(MENU_URL+resId+"&submitAction=ENTER")
-        const json = await data.json();
-        setResInfo(json?.data)
-        
-    }
+    const resInfo = useRestaurentMenu(resId)
     
     if (resInfo == null) return <Shimmer/>
 
     const {text} = resInfo?.cards[0]?.card?.card
     const {itemCards} = resInfo?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card
-    // console.log(name);
-    // console.log(menu);
     
     
-    
-
     return  (
         <>
         <div className="w-full h-auto  flex justify-center">

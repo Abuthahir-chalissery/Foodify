@@ -7,8 +7,7 @@ const User = (props) => {
         <div className="user-card">
             <h1>Name: {name}</h1>
             <h1>Location: Chalissery</h1>
-            <h1>Contact: 9778238561</h1>
-            <h1>count : {count}</h1>
+            <h1>Contact: 9778238561</h1>    
         </div>
     )
 }

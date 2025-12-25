@@ -3,6 +3,7 @@ import RestroCard from './RestroCard'
 import { useState } from 'react';
 import Shimmer from './Shimmer';
 import { Link } from 'react-router-dom';
+import useOnlineStatus  from '../utils/useOnlineStatus'
 
 export default function RestroContainer({resData}) {
   
@@ -28,7 +29,11 @@ export default function RestroContainer({resData}) {
     setListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     setFilteredRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     setLoading(false)
-  }
+  }  
+
+  const onlineStatus = useOnlineStatus()
+
+  if (onlineStatus == false) return <h1>No internet broo pls check!</h1>
   
   // conditional rendering
   return loading? (<Shimmer/>) : (
