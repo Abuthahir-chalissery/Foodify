@@ -77,7 +77,7 @@ export default function RestroContainer({resData}) {
             }} className='p-2 rounded-3xl cursor-pointer bg-gray-200 pl-2 pr-2  text-gray-600'>Top Rated</button>
 
         </div>
-        <div className='w-full  flex flex-wrap gap-5 h-auto justify-center '>
+        <div className='w-full  flex flex-wrap gap-5 h-auto justify-center'>
             {error &&(<h1 className='font-semibold text-red-700'>{`${error}`}</h1>) }
             {filteredRestaurants.map((res) => (
               <Link key={res.info.id} to={'/restaurent/'+res?.info?.id}><RestroCard  resData={res} /></Link>
