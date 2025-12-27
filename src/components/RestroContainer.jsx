@@ -19,6 +19,9 @@ export default function RestroContainer({resData}) {
     fetchData();
   }, []);
 
+  console.log(listOfRestaurants);
+  
+
 
   const fetchData = async () => {
     setLoading(true)
