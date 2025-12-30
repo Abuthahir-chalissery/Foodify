@@ -10,9 +10,8 @@ export default function RestroCard(props) {
     
   return (
     <div className='w-70 justify-between overflow-hidden h-auto border itece p-2 border-gray-100 hover:border-gray-400 bg-gray-100 flex flex-col   gap-2 rounded-md'>
-        <div className='w-full h-auto relative'>
+        <div className='w-full h-auto '>
           <img className='w-full rounded-md cursor-pointer h-50 rel object-center object-cover' src={CON_URL + cloudinaryImageId} alt="No photo" />
-          <h1 className='bg-white w-17 h-10 flex justify-center items-center text-2xl font-bold  absolute bottom-40 right-0'>60%</h1>
         </div>
         <h1 className='text-lg font-semibold'>{name}</h1>
         <h4 className='text-sm '>{cuisines.join(", ")}</h4>
