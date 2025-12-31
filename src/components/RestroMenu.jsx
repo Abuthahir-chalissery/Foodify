@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { MENU_URL } from "../utils/constants";
 import { MENU_IMG_URL } from "../utils/constants";
 import useRestaurentMenu from "../utils/useRestroMenu";
+import RestaurentCategory from "./RestaurentCategory";
 
 const RestroMenu = () => {
 
@@ -20,7 +21,6 @@ const RestroMenu = () => {
         c.card?.card?.["@type"] == "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     )
 
-    console.log(categories);
     
     
     
@@ -44,25 +44,9 @@ const RestroMenu = () => {
                     <h1 className="w-full text-center h-10 flex justify-center items-center rounded-xl bg-gray-200  text-lg text-gray-800  ">- menu  -</h1>
                     <ul className="w-full flex flex-col gap-5 ">
 
-                        {itemCards.map(item => 
-                            <div key={item.card.info.id} className="w-full h-auto flex flex-col gap-5">
-                                <div className="wfull flex justify-between">
-                                    <div className="flex flex-col justify-between max-w-150">
-                                        <h1 className="text-lg font-semibold">{item.card.info.name}</h1>
-                                        <h1 className="font-semibold">₹{item.card.info.price/100 || item.card.info.defaultPrice/100}</h1>
-                                        <h1 className="text-sm font-bold text-green-500 flex items-center gap-1"><span><img className="size-4" src="/src/assets/greenstar.png" alt="" /></span>4.1</h1>
-                                        <h1 className="text-sm font- text-gray-700">{item.card.info.description}</h1>
-                                        
-                                    </div>
-                                    <div className="flex justify-center itec">
-                                        <img className="size-35 rounded-xl object-cover" src={MENU_IMG_URL+item.card.info.imageId} alt="" />
-                                    </div>
-                                </div>
-                                <hr className="text-gray-400"/>
-                            </div>
-                        )}
-                        
-                        
+                    {categories.map((category) => 
+                    <RestaurentCategory category= {category?.card?.card}/>)}
+
                     </ul>
                 </div>
             </div>
@@ -73,3 +57,22 @@ const RestroMenu = () => {
 
 
 export default RestroMenu;
+
+
+// {itemCards.map(item => 
+//     <div key={item.card.info.id} className="w-full h-auto flex flex-col gap-5">
+//         <div className="wfull flex justify-between">
+//             <div className="flex flex-col justify-between max-w-150">
+//                 <h1 className="text-lg font-semibold">{item.card.info.name}</h1>
+//                 <h1 className="font-semibold">₹{item.card.info.price/100 || item.card.info.defaultPrice/100}</h1>
+//                 <h1 className="text-sm font-bold text-green-500 flex items-center gap-1"><span><img className="size-4" src="/src/assets/greenstar.png" alt="" /></span>4.1</h1>
+//                 <h1 className="text-sm font- text-gray-700">{item.card.info.description}</h1>
+
+//             </div>
+//             <div className="flex justify-center itec">
+//                 <img className="size-35 rounded-xl object-cover" src={MENU_IMG_URL+item.card.info.imageId} alt="" />
+//             </div>
+//         </div>
+//         <hr className="text-gray-400"/>
+//     </div>
+// )}
