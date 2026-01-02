@@ -7,13 +7,11 @@ import useRestaurentMenu from "../utils/useRestroMenu";
 import RestaurentCategory from "./RestaurentCategory";
 
 const RestroMenu = () => {
-    const showItems = true
 
     const { resId } = useParams()
     
     const resInfo = useRestaurentMenu(resId)
 
-    const [showIndex, setShowIndex] = useState(0)
     
     if (resInfo == null) return <Shimmer/>
 
@@ -47,8 +45,8 @@ const RestroMenu = () => {
                     <h1 className="w-full text-center h-10 flex justify-center items-center rounded-xl bg-gray-200  text-lg text-gray-800  ">- menu  -</h1>
                     <ul className="w-full flex flex-col gap-5 ">
 
-                    {categories.map((category , index) => 
-                    <RestaurentCategory key={category.card.card.categoryId} category= {category?.card?.card} showItems={index == showIndex && true} setShowIndex={()=> setShowIndex(index)} />)}
+                    {categories.map((category ) => 
+                    <RestaurentCategory key={category.card.card.categoryId} category= {category?.card?.card}  />)}
 
                     </ul>
                 </div>

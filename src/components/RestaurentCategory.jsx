@@ -5,18 +5,20 @@ import ItemList from "./ItemList";
 const RestaurentCategory = (props) => {
     // const [showItems , setShowItems] = useState(true)
         
-
+    const [showItems, setShowItems ] = useState(true)
     const {title} = props.category
     const {itemCards} = props.category
 
     const itemCount = itemCards.length;
-    const showItems = props.showItems
-    const {setShowIndex} = props
-    console.log(setShowIndex);
     
 
     const handleClick = () => {
-        setShowIndex()
+        if (showItems == true){
+            setShowItems(false)
+        }
+        else{
+            setShowItems(true)
+        }
         
     }
 
@@ -30,7 +32,7 @@ const RestaurentCategory = (props) => {
                 
                 {/* Accordion */}
 
-                {showItems && <ItemList items={itemCards}/>}
+                {showItems ? <ItemList items={itemCards}/>: <h1></h1>}
                 <div className="w-full h-3.5 bg-gray-200"></div>
             </div>
         </>
