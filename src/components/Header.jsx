@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import UserContext from '../utils/UserContext'
+import { useSelector } from 'react-redux'
 
 
 export default function Header() {
@@ -12,6 +13,12 @@ export default function Header() {
 
   const [BtnName , setBtnName] = useState('Login')
 
+
+  // Subscribing
+  const cartItems = useSelector((store) => store.cart.items)
+  console.log(cartItems );
+  
+
   return (
     <div className='w-full h-auto flex justify-between border border-gray-400 p-2 rounded-2xl'>
         <div className='logo-container'>
@@ -22,8 +29,8 @@ export default function Header() {
                 <Link to={'/'}><li className='hover:text-red-500 hidden sm:block'>Home</li></Link>
                 <Link to={'/about'}><li className='hover:text-red-500 hidden sm:block'>About Us</li></Link>
                 <Link to={'/contact'}><li className='hover:text-red-500 hidden sm:block'>Contact Us</li></Link>
-                <Link to={'/cart'}><li className='hover:text-red-500 hidden sm:block'>Cart</li></Link>
-                <button onClick={()=> {BtnName === "Login" ? setBtnName("Logout") : setBtnName("Login")}} className=' pl-2 pr-2 rounded-md bg-red-500 text-white p-1 cursor-pointer'>{BtnName}</button>
+                <Link to={'/cart'}><li className='hover:text-red-500 hidden sm:block '>Cart <span className='text-xs font-semibold pl-1 pr-1 rounded-4xl text-white bg-red-500'>{cartItems.length}</span> </li></Link>
+                <button  onClick={()=> {BtnName === "Login" ? setBtnName("Logout") : setBtnName("Login")}} className=' pl-2 pr-2 rounded-md bg-red-500 text-white p-1 cursor-pointer'>{BtnName}</button>
                 <h1>{loggedInUser}</h1>
             </ul>
         </div>

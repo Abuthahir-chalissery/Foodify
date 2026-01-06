@@ -1,6 +1,19 @@
+import { useDispatch } from "react-redux";
 import { MENU_IMG_URL } from "../utils/constants";
+import { addItem } from "../utils/cartSlice";
 
 const ItemList = ({items}) => {
+
+
+    const dispatch = useDispatch();
+    const handleAddItem = (item) => {
+        //dispatch an action
+        dispatch(addItem(item))
+        
+        
+    }
+
+
     return (
         <>  
         {items.map(item => 
@@ -14,7 +27,7 @@ const ItemList = ({items}) => {
                     </div>
                     <div className="max-w-50  flex justify-center flex-col  sm:items-center gap-1 sm:gap-0 relative">
                         <img className="max-w-50  sm:size-35 rounded-xl object-cover" src={MENU_IMG_URL+item.card.info.imageId} alt="" />
-                        <button className="w-full  p-1 text-green-600 font-semibold sm:w-25 bg-white rounded-md sm:absolute  sm:top-30 border border-gray-300">ADD</button>
+                        <button onClick={() => handleAddItem(item)} className="w-full  p-1 text-green-600 font-semibold sm:w-25 bg-white rounded-md sm:absolute  sm:top-30 border border-gray-300">ADD</button>
                     </div>
                 </div>
                 <hr className="text-gray-400"/>
